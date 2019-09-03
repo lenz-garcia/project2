@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('connect', () => {
     // Check if user credentials are in local storage
     if(!username){
-      $('#myModal').modal({backdrop: true, keyboard: false});
+      $('#myModal').modal({backdrop: 'static', keyboard: false});
       $('.modal-title').text('Input your name:');
       setTimeout(function(){
         document.querySelector('#modal-input').focus();
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(function(){
         document.querySelector('.alert-danger').innerHTML = data['message'];
         document.querySelector('.alert-danger').style.display = 'block';
-        $('#myModal').modal({backdrop: true, keyboard: false});
+        $('#myModal').modal({backdrop: 'static', keyboard: false});
       }, 500);
       setTimeout(function(){
         document.querySelector('#modal-input').focus();
@@ -135,11 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load channels on client-side
   socket.on('channels loaded', data => {
       data['channelList'].forEach(function (item) {
-        createChannel(item)
+        createChannel(item);
       });
 
       if(data['curChannel']){
-        document.querySelector(`li[data-channel='${data['curChannel']}']`).click()
+        document.querySelector(`li[data-channel='${data['curChannel']}']`).click();
       }
   });
 
@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     li.innerHTML = `${name}`;
     li.setAttribute('data-channel', `${name}`);
     li.onclick = function () {
+      document.querySelector('#message-text').disabled = false;
       let n = localStorage.getItem('curChannel');
       var date = new Date();
       var iso = date.toISOString().match(/(\d{4}\-\d{2}\-\d{2})T(\d{2}:\d{2}:\d{2})/);
