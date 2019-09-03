@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('storage cleared', () => {
     document.querySelector("button[name='clear-storage']").style.display = 'block';
     localStorage.clear();
-    alert('Local storage is cleared.');
+    alert('You are logged out. \n\nPlease input another name.');
     window.location.reload();
   });
 
@@ -224,8 +224,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (data['channels'][curChannel][x]['username'] == username && !(data['channels'][curChannel][x]['text'] == 'left the room' || data['channels'][curChannel][x]['text'] == 'entered the room')) {
         const icon = document.createElement('i');
         icon.className = 'fa fa-trash';
+        icon.setAttribute("data-index", x);
         icon.onclick = function () {
-          let parentBox = this.parentElement.parentElement;
+          let dIco = this;
+          let parentBox = dIco.parentElement.parentElement;
           parentBox.style.opacity = '0';
           setTimeout(function(){
             parentBox.className += ' remove';
@@ -233,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 500);
           setTimeout(function(){ parentBox.style.height = '0'; }, 600);
           setTimeout(function(){ parentBox.remove(); }, 1100);
-          setTimeout(function(){ socket.emit('delete message', {'channel': curChannel, 'index': x}); }, 1300);
+          setTimeout(function(){ socket.emit('delete message', {'channel': curChannel, 'index': dIco.dataset.index}); }, 1300);
         };
         msgSenderDT.append(icon);
       }

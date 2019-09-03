@@ -1,16 +1,8 @@
-body {
-  background-color: #FFF;
-}
-h1 {
-  text-align: center;
-}
-h5 {
-  margin: 100px auto 0 auto;
-}
-h3 {
-  font-weight: lighter;
-}
-ul{
+body { background-color: #FFF; }
+h1 { text-align: center; }
+h5 { margin: 100px auto 0 auto; }
+h3 { font-weight: lighter; }
+ul {
   list-style: none;
   padding-left: 0;
 }
@@ -18,25 +10,19 @@ li::before {
   content: '#';
   padding: 5px;
 }
-.main{
+.main {
   width: 70%;
   height: 750px;
   margin: 0 auto;
 }
-.left-bar{
-  width: 30%;
-}
-.right-bar{
-  width: 70%;
-}
-.user,.channels,.msgs,.msg{
+.left-bar { width: 30%; }
+.right-bar { width: 70%; }
+.user, .channels, .msgs, .msg {
   width:100%;
   padding: 10px;
   border: 1px black solid;
 }
-.user, .msg{
-  height: 65px;
-}
+.user, .msg { height: 65px; }
 .channels, .msgs {
   height: 600px;
 }
@@ -44,15 +30,8 @@ li::before {
   background-color: #000000;
   color: white;
 }
-
-.user {
-  text-align: center;
-}
-
-.msg {
-  display: flex;
-}
-
+.user { text-align: center; }
+.msg { display: flex; }
 .msgs {
   padding: 20px;
   overflow-y:scroll;
@@ -62,15 +41,13 @@ li::before {
   align-items: flex-start;
   margin: auto;
 }
-
 .right {
   align-self: flex-end;
 	border-radius: 10px 10px 0 10px !important;
 	background-color: #0780FE !important;
 	color: white;
 }
-
-.box{
+.box {
 	max-width:70%;
 	background: #E5E5EA;
 	border-radius: 10px 10px 10px 0;
@@ -80,32 +57,25 @@ li::before {
   -webkit-transition: opacity 500ms linear;
   transition: opacity 500ms linear;
 }
-
-p{
-	margin: 0;
-}
-
+p {	margin: 0; }
 .username {
   font-size: 30px;
   font-weight: normal;
   vertical-align: top;
   margin: auto;
 }
-
-#message-text {
-  width: 85%;
-}
-
+#message-text { width: 85%; }
 #message-send {
   width: 14%;
   margin-left: 1%;
 }
-
-input[name='clear-storage'], input[name='add-channel'] {
-  float: right;
-}
-
+input[name='clear-storage'], input[name='add-channel'] { float: right; }
+input[name='clear-storage'] { display: none; }
 .remove {
   -webkit-transition: height 500ms ease-out;
   transition: height 500ms ease-out;
+}
+.navbar-brand {
+  margin: 0;
+  font-size: 40px;
 }
